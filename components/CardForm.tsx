@@ -16,8 +16,6 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 
-import TermsAndPolicyCard from "./TermsAndPolicyCard";
-
 function formatWaktuKunjungan(tanggal: string, jam: string): string {
   const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
   const months = [
@@ -385,8 +383,6 @@ export default function CardForm() {
           </div>
         </div>
       </div>
-
-      <TermsAndPolicyCard />
 
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/40">

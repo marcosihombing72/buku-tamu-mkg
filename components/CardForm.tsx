@@ -1,5 +1,15 @@
 "use client";
+interface DataBukuTamu {
+  Nama_Depan_Pengunjung: string;
+  Nama_Belakang_Pengunjung: string;
+  Email_Pengunjung?: string;
+  email?: string;
+  No_Telepon_Pengunjung: string;
+  id_stasiun: string;
+}
+
 import Button from "@/components/Button";
+import Image from "next/image";
 import { format } from "date-fns";
 import { id } from "date-fns/locale";
 import { useRouter } from "next/navigation";
@@ -47,7 +57,7 @@ export default function CardForm() {
   });
   const [hasSigned, setHasSigned] = useState(false);
   const [signatureFile, setSignatureFile] = useState<File | null>(null);
-  const [dataBukuTamu, setDataBukuTamu] = useState<any>(null);
+  const [dataBukuTamu, setDataBukuTamu] = useState<DataBukuTamu | null>(null);
   const [stasiunName, setStasiunName] = useState("");
 
   // Ambil data & update waktu real-time
@@ -221,11 +231,14 @@ export default function CardForm() {
       <div className="flex justify-center items-center min-h-screen px-4 sm:px-6">
         <div className="flex w-full max-w-5xl bg-white rounded-3xl shadow-lg overflow-hidden flex-col md:flex-row">
           <div className="hidden md:block w-full md:w-1/2">
-            <img
-              src={getStasiunImage()}
-              alt={`Gedung ${stasiunName}`}
-              className="w-full h-full object-cover"
-            />
+            <Image
+  src={getStasiunImage() || "/fallback.png"} // jaga-jaga jika undefined
+  alt={`Gedung ${stasiunName}`}
+  width={600} // sesuaikan dengan ukuran real
+  height={400}
+  className="w-full h-full object-cover"
+/>
+
           </div>
 
           <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">

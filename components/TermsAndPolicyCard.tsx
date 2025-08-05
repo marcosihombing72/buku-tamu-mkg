@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
+
 
 export default function TermsAndPolicyCard() {
   const [stasiunName, setStasiunName] = useState("Stasiun");
@@ -30,11 +32,13 @@ export default function TermsAndPolicyCard() {
       <div className="flex w-full max-w-6xl bg-white rounded-3xl shadow-lg overflow-hidden flex-col md:flex-row transition-all duration-300">
         {/* Gambar kiri */}
         <div className="hidden md:block w-1/2">
-          <img
-            src={getStasiunImage()}
-            alt={`Gedung ${stasiunName}`}
-            className="w-full h-full object-cover"
-          />
+          <Image
+  src={getStasiunImage()}
+  alt={`Gedung ${stasiunName}`}
+  width={800} // sesuaikan dengan kebutuhan
+  height={600} // sesuaikan dengan kebutuhan
+  className="w-full h-full object-cover"
+/>
         </div>
 
         {/* Konten kanan */}

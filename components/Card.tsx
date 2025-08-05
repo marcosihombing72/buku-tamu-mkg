@@ -1,5 +1,6 @@
 import React from "react";
 import { CardProps } from "@/interfaces/CardProps";
+import Image from "next/image";
 
 export default function Card({
   image,
@@ -20,19 +21,24 @@ export default function Card({
         hover:-translate-y-1 duration-300"
     >
       {/* Gambar utama */}
-      <img
-        src={image}
-        alt="image"
-        className="w-full h-full object-coverrounded-2xl"
-      />
+      <Image
+  src={image}
+  alt="image"
+  fill
+  className="object-cover rounded-2xl"
+/>
+
 
       {/* Overlay di atas gambar */}
       <div className="absolute -bottom-5 right-0 left-0 flex flex-col items-center justify-center rounded-full bg-white/70 z-10 w-[111px] h-[23px] sm:w-[130px] sm:h-[39px] md:w-[280px] md:h-[79px] ">
-        <img
-          src={logo}
-          alt="logo"
-          className="w-[15px] h-[13px] sm:w-[20px] sm:h-[17px] md:w-[47px] md:h-[42px] rounded-2xl"
-        />
+        <Image
+  src={logo}
+  alt="logo"
+  width={47}
+  height={42}
+  className="rounded-2xl w-[15px] h-[13px] sm:w-[20px] sm:h-[17px] md:w-[47px] md:h-[42px]"
+/>
+
 
         <div className="text-center justify-center items-center mb-2">
           <p

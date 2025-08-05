@@ -2,6 +2,8 @@ import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineMail } from "react-icons/md";
 import { BsTelephone } from "react-icons/bs";
+import Image from "next/image";
+
 
 export default function CardKontakMeteo() {
   return (
@@ -67,11 +69,14 @@ export default function CardKontakMeteo() {
 
       {/* Peta */}
       <div className="flex-1 w-full py-4 sm:py-6 lg:py-10 flex justify-center">
-        <img
-          src="/MapMeteo.png"
-          alt="Map Location"
-          className="w-full max-w-md sm:max-w-lg rounded-xl object-cover"
-        />
+        <Image
+  src="/MapMeteo.png"
+  alt="Map Location"
+  width={600}   // Atur sesuai rasio gambar
+  height={400}
+  className="w-full max-w-md sm:max-w-lg rounded-xl object-cover"
+/>
+
       </div>
     </div>
   );

@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from "next/image";
+
 
 const slides = [
   {
@@ -40,11 +42,14 @@ export default function CarouselBeranda() {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-auto aspect-video object-cover object-center rounded-2xl"
-              />
+              <Image
+  src={slide.image}
+  alt={slide.title}
+  width={800} // kamu bisa sesuaikan dengan kebutuhan layout-mu
+  height={450}
+  className="w-full h-auto aspect-video object-cover object-center rounded-2xl"
+/>
+
 
               <div className="absolute bottom-0 left-0 right-0 bg-transparant text-white text-center p-4 rounded-b-2xl">
                 <h3 className="text-lg font-semibold">{slide.title}</h3>

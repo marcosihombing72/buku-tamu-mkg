@@ -1,7 +1,18 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+
+
+interface PengunjungSuggestion {
+  ID_Pengunjung: string;
+  Nama_Depan_Pengunjung: string;
+  Nama_Belakang_Pengunjung: string;
+  Email_Pengunjung: string;
+  No_Telepon_Pengunjung: string;
+}
+
 
 export default function CardForm2() {
   const router = useRouter();
@@ -16,8 +27,8 @@ export default function CardForm2() {
 
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPhoneValid, setIsPhoneValid] = useState(true);
-  const [suggestions, setSuggestions] = useState<any[]>([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggestions, setSuggestions] = useState<PengunjungSuggestion[]>([]);
+const [showSuggestions, setShowSuggestions] = useState(false);
   const [stasiunName, setStasiunName] = useState("");
 
   useEffect(() => {
@@ -96,7 +107,7 @@ export default function CardForm2() {
     }
   };
 
-  const handleSelectSuggestion = (pengunjung: any) => {
+  const handleSelectSuggestion = (pengunjung: PengunjungSuggestion) => {
     setFormData({
       Nama_Depan_Pengunjung: pengunjung.Nama_Depan_Pengunjung,
       Nama_Belakang_Pengunjung: pengunjung.Nama_Belakang_Pengunjung,
@@ -124,11 +135,14 @@ export default function CardForm2() {
       <div className="flex w-full max-w-5xl bg-white rounded-3xl shadow-lg overflow-hidden flex-col md:flex-row">
         {/* Gambar kiri */}
         <div className="hidden md:block w-1/2">
-          <img
-            src={getStasiunImage()}
-            alt={`Gedung ${stasiunName}`}
-            className="w-full h-full object-cover"
-          />
+          <Image
+  src={getStasiunImage() || "/LogoBmkg.png"} // fallback jika null
+  alt={`Gedung ${stasiunName}`}
+  width={600} // sesuaikan ukuran aslinya
+  height={400}
+  className="w-full h-full object-cover"
+/>
+
         </div>
 
         {/* Form kanan */}

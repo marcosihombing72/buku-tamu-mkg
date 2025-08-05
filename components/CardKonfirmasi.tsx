@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import Button from "@/components/Button";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import Image from "next/image";
 
 type FormData = {
   nama: string;
@@ -63,11 +64,14 @@ export default function CardKonfirmasi() {
 
         <div className="flex flex-col md:flex-row items-center md:items-start gap-10 mb-8">
           <div className="w-36 h-36 rounded-full overflow-hidden shadow-lg">
-            <img
-              src="/PotoProfile.png"
-              alt="Foto Profil"
-              className="w-full object-cover"
-            />
+            <Image
+  src="/PotoProfile.png"
+  alt="Foto Profil"
+  width={144} // misalnya 144px (ukuran lingkaran: w-36 h-36)
+  height={144}
+  className="w-full h-full object-cover rounded-full"
+/>
+
           </div>
 
           <div className="text-center md:text-left space-y-1 w-full">

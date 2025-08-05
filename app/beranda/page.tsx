@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 import Button from "@/components/Button";
 import CardKunjungan from "@/components/CardKunjungan";
@@ -11,7 +12,6 @@ import Navbar from "@/components/Navbar";
 
 export default function Beranda() {
   const router = useRouter();
-  const scrollRef = useRef(null);
 
   const handleStart = () => {
     router.push("/formbukutamu2");
@@ -123,11 +123,14 @@ export default function Beranda() {
 
           <div className="relative group hover:scale-105 transition-all duration-500">
             <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl z-0"></div>
-            <img
-              src="/DesainBeranda.png"
-              alt="Logo BMKG"
-              className="relative w-full max-w-[863px] pl-10 drop-shadow-2xl z-10 transition-all duration-500"
-            />
+            <Image
+  src="/DesainBeranda.png"
+  alt="Logo BMKG"
+  width={863}
+  height={500} // sesuaikan tinggi yang masuk akal
+  className="relative w-full max-w-[863px] pl-10 drop-shadow-2xl z-10 transition-all duration-500"
+/>
+
           </div>
         </div>
       </div>
